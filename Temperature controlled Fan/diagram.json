@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "MADAVA VENKAT J URK23EC1026",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 96, "left": 158.44, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -57.3, "left": 186.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -60.8,
+      "left": -167.2,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 170.8, "left": -105.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "h28.8", "v67.2" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-38.4", "v67.2" ] ],
+    [ "esp:15", "dht1:SDA", "green", [ "h19.2", "v-201.6", "h-67.3" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-28.8", "v192", "h374.4", "v86.4" ] ],
+    [ "esp:5V", "lcd1:VCC", "red", [ "h0" ] ],
+    [ "esp:21", "lcd1:SDA", "green", [ "h28.8", "v144", "h-489.6", "v-326.6" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-57.6", "v-76.5", "h537.6", "v220.8" ] ],
+    [ "servo1:PWM", "esp:15", "green", [ "v29", "h364.8" ] ],
+    [ "servo1:GND", "esp:GND.2", "black", [ "v-115.2", "h364.8" ] ],
+    [ "servo1:V+", "esp:5V", "green", [ "h-19.2", "v48.1", "h287.85" ] ]
+  ],
+  "dependencies": {}
+}
